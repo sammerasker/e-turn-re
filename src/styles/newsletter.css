@@ -1,0 +1,197 @@
+/* Styles for animated-section from an1 */
+
+.animated-section-ep {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #ffffff 0%, #fffaed 30%, #fff5d6 60%, #ffd8b6 100%);
+    overflow: hidden;
+    padding: 4rem 2rem;
+}
+
+.background-animation-ep {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.wave-ep {
+    position: absolute;
+    opacity: 0.2;
+    background: linear-gradient(90deg, #fff5d6, #ffea9e);
+    width: 200%;
+    height: 200px;
+    border-radius: 40%;
+    animation: wave-animation-ep 25s linear infinite;
+    transform-origin: center;
+}
+
+.wave-ep:nth-child(1) {
+    bottom: -80px;
+    animation-duration: 20s;
+}
+
+.wave-ep:nth-child(2) {
+    bottom: -60px;
+    animation-delay: -5s;
+    animation-duration: 17s;
+    opacity: 0.15;
+}
+
+.wave-ep:nth-child(3) {
+    bottom: -40px;
+    animation-delay: -10s;
+    animation-duration: 15s;
+    opacity: 0.1;
+}
+
+.gradient-blob-ep {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.15;
+    background: #ffe066;
+    animation: float-ep 20s infinite alternate ease-in-out;
+}
+
+.blob1-ep {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    right: -150px;
+    animation-duration: 25s;
+    background: #fffaed;
+}
+
+.blob2-ep {
+    width: 300px;
+    height: 300px;
+    bottom: -50px;
+    left: -100px;
+    animation-duration: 20s;
+    animation-delay: 5s;
+    background: #ffea9e;
+}
+
+.blob3-ep {
+    width: 250px;
+    height: 250px;
+    top: 30%;
+    left: 20%;
+    animation-duration: 15s;
+    animation-delay: 3s;
+    background: #ffd166;
+}
+
+.particles-container-ep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.particle-ep {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 230, 102, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.animated-shape.shape1 {
+  background: linear-gradient(45deg, #f99a26, #e52e71);
+  left: 10%;
+  top: 10%;
+  animation: float 15s ease-in-out infinite;
+}
+
+@keyframes wave-animation-ep {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(0%) rotate(360deg);
+    }
+}
+
+@keyframes float-ep {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(100px, 50px) scale(1.1);
+    }
+    100% {
+        transform: translate(0, 100px) scale(1);
+    }
+}
+
+.light-ray-ep {
+    position: absolute;
+    width: 3px;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    transform-origin: top;
+    animation: ray-rotation-ep 10s infinite linear;
+    opacity: 0.2;
+}
+
+@keyframes ray-rotation-ep {
+    from {
+        transform: rotate(0deg) translate(0, 0);
+    }
+    to {
+        transform: rotate(360deg) translate(0, 0);
+    }
+}
+
+/* Styles for mouse follow particle */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 6; /* Ensure mouse blob is above other particles but below content */
+}
+
+/* Hero Section Text Animation */
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-75px); /* Changed direction to slide from top */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  opacity: 0; /* Start hidden */
+  animation-name: slideInFromTop;
+  animation-duration: 1.2s; /* Slower animation */
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; /* Keep final state */
+}
+
+.animate-slide-in-title {
+  animation-delay: 0.7s; /* Title appears first */
+}
+
+.animate-slide-in-subtitle {
+  animation-delay: 0.7s; /* Subtitle appears after title */
+}
+
+.animate-slide-in-paragraph {
+  animation-delay: 0.8s; /* Paragraph appears after subtitle */
+}
+
+.animate-slide-in-button {
+  animation-delay: 1.7s; /* Button appears last */
+}

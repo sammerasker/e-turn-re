@@ -1,0 +1,217 @@
+/* Styles for animated-section from an1 */
+
+.animated-section-ep {
+  background: linear-gradient(135deg, #f99a26 0%, #FFD700 100%);
+  background-size: 400% 400%;
+  animation: gradient-animation-ep 15s ease infinite;
+}
+
+.background-animation-ep {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.wave-ep {
+  background: linear-gradient(90deg, #f99a26, #FFA500, #f99a26);
+  background-size: 200% 200%;
+  animation: wave-animation-ep 4s linear infinite;
+}
+
+.wave-ep:nth-child(1) {
+    bottom: -80px;
+    animation-duration: 20s;
+}
+
+.wave-ep:nth-child(2) {
+    bottom: -60px;
+    animation-delay: -5s;
+    animation-duration: 17s;
+    opacity: 0.15;
+}
+
+.wave-ep:nth-child(3) {
+    bottom: -40px;
+    animation-delay: -10s;
+    animation-duration: 15s;
+    opacity: 0.1;
+}
+
+.gradient-blob-ep {
+  background: linear-gradient(45deg, #f99a26, #FFA500);
+  animation: blob-animation-ep 10s ease-in-out infinite alternate;
+}
+
+.blob1-ep {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    right: -150px;
+    animation-duration: 25s;
+    background: #f99a26;
+}
+
+.blob2-ep {
+    width: 300px;
+    height: 300px;
+    bottom: -50px;
+    left: -100px;
+    animation-duration: 20s;
+    animation-delay: 5s;
+    background: #f99a26;
+}
+
+.blob3-ep {
+    width: 250px;
+    height: 250px;
+    top: 30%;
+    left: 20%;
+    animation-duration: 15s;
+    animation-delay: 3s;
+    background: #f99a26;
+}
+
+.particles-container-ep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.particle-ep {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 230, 102, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+@keyframes wave-animation-ep {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(0%) rotate(360deg);
+    }
+}
+
+@keyframes float-ep {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.text-gradient-ep {
+  background: linear-gradient(45deg, #FF9F1C, #F99A26);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.light-ray-ep {
+    position: absolute;
+    width: 3px;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    transform-origin: top;
+    animation: ray-rotation-ep 10s infinite linear;
+    opacity: 0.2;
+}
+
+@keyframes ray-rotation-ep {
+    from {
+        transform: rotate(0deg) translate(0, 0);
+    }
+    to {
+        transform: rotate(360deg) translate(0, 0);
+    }
+}
+
+/* Styles for mouse follow particle */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 6; /* Ensure mouse blob is above other particles but below content */
+}
+
+/* Hero Section Text Animation */
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px); /* Reduced distance for mobile */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes slideInFromTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-75px); /* Original distance for desktop */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.animate-slide-in {
+  opacity: 0; /* Start hidden */
+  animation-name: slideInFromTop;
+  animation-duration: 0.8s; /* Faster animation for mobile */
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; /* Keep final state */
+}
+
+@media (min-width: 768px) {
+  .animate-slide-in {
+    animation-duration: 1.2s; /* Slower animation for desktop */
+  }
+}
+
+.animate-slide-in-title {
+  animation-delay: 0.3s; /* Title appears first - faster on mobile */
+}
+
+.animate-slide-in-subtitle {
+  animation-delay: 0.4s; /* Subtitle appears after title - faster on mobile */
+}
+
+.animate-slide-in-paragraph {
+  animation-delay: 0.5s; /* Paragraph appears after subtitle - faster on mobile */
+}
+
+.animate-slide-in-button {
+  animation-delay: 0.8s; /* Button appears last - faster on mobile */
+}
+
+@media (min-width: 768px) {
+  .animate-slide-in-title {
+    animation-delay: 0.7s; /* Title appears first - original timing for desktop */
+  }
+  
+  .animate-slide-in-subtitle {
+    animation-delay: 0.7s; /* Subtitle appears after title - original timing for desktop */
+  }
+  
+  .animate-slide-in-paragraph {
+    animation-delay: 0.8s; /* Paragraph appears after subtitle - original timing for desktop */
+  }
+  
+  .animate-slide-in-button {
+    animation-delay: 1.7s; /* Button appears last - original timing for desktop */
+  }
+}

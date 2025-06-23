@@ -1,0 +1,10 @@
+				@font-face {
+					font-family: 'axiforma';
+					src: url('/wp-content/uploads/useanyfont/9438Axiforma.woff2') format('woff2'),
+						url('/wp-content/uploads/useanyfont/9438Axiforma.woff') format('woff');
+					font-weight: 400; font-style: normal; font-display: auto;
+				}
+
+				.axiforma{font-family: 'axiforma' !important;}
+
+		

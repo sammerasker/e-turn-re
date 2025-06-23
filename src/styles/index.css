@@ -1,0 +1,1414 @@
+
+/* Import Tailwind base styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  @font-face {
+    font-family: 'Avenir-Black';
+    src: url('/fonts/Avenir-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+}
+
+@layer utilities {
+  .font-avenir-black {
+    font-family: 'Avenir-Black', sans-serif;
+  }
+  .border-highlight {
+    border: 2px dashed red;
+    padding: 0.03em 0.25em;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* e-turn custom colors - updated to match brand colors from screenshots */
+    --e-turn-orange: 36 100% 55%; /* Orange/gold color from screenshots */
+    --e-turn-yellow: 340 3% 13%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Styles for ElevatorPitch animation (from an1 document) */
+.animated-section-ep {
+  position: relative;
+  min-height: 100vh; /* Or adjust as needed for the section height */
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #fffaed 30%, #fff5d6 60%, #ffd8b6 100%);
+  overflow: hidden; /* Important to contain animated elements */
+  padding: 4rem 2rem; /* Adjust padding as needed */
+  /* Ensure this section also participates in scroll snapping if desired, or remove if it causes issues */
+  /* scroll-snap-align: start; */ 
+}
+
+.background-animation-ep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Behind content */
+}
+
+.wave-ep {
+  position: absolute;
+  opacity: 0.2;
+  background: linear-gradient(90deg, #fff5d6, #ffea9e);
+  width: 200%;
+  height: 200px;
+  border-radius: 40%;
+  animation: wave-animation-ep 25s linear infinite;
+  transform-origin: center;
+}
+
+.wave-ep:nth-child(1) {
+  bottom: -80px;
+  animation-duration: 20s;
+}
+
+.wave-ep:nth-child(2) {
+  bottom: -60px;
+  animation-delay: -5s;
+  animation-duration: 17s;
+  opacity: 0.15;
+}
+
+.wave-ep:nth-child(3) {
+  bottom: -40px;
+  animation-delay: -10s;
+  animation-duration: 15s;
+  opacity: 0.1;
+}
+
+.gradient-blob-ep {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  background: #ffe066;
+  animation: float-ep 20s infinite alternate ease-in-out; /* Ensure this matches JS if overridden */
+}
+
+.blob1-ep {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -150px;
+  animation-duration: 25s;
+  background: #fffaed;
+}
+
+.blob2-ep {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -100px;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  background: #ffea9e;
+}
+
+.blob3-ep {
+  width: 250px;
+  height: 250px;
+  top: 30%;
+  left: 20%;
+  animation-duration: 15s;
+  animation-delay: 3s;
+  background: #ffd166;
+}
+
+.particles-container-ep {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Behind content, but can be above background-animation if needed */
+  pointer-events: none;
+}
+
+.particle-ep {
+  position: absolute;
+  /* Default size, will be overridden by JS */
+  width: 8px; 
+  height: 8px;
+  background: rgba(255, 230, 102, 0.3); /* Default particle color */
+  border-radius: 50%;
+  pointer-events: none; /* Individual particles should not intercept mouse events */
+  /* Animation will be set by JS */
+}
+
+.light-ray-ep {
+  position: absolute;
+  width: 3px;
+  /* height will be set inline */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  transform-origin: top;
+  animation: ray-rotation-ep 10s infinite linear;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+@keyframes wave-animation-ep {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0%) rotate(360deg);
+  }
+}
+
+/* Using a more subtle float for particles to avoid being too distracting */
+@keyframes float-ep {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--float-x, 20) * 1px), calc(var(--float-y, 10) * 1px)) scale(1.05); 
+  }
+  100% {
+    transform: translate(0, calc(var(--float-y, 20) * 1px)) scale(1);
+  }
+}
+
+
+@keyframes ray-rotation-ep {
+  from {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  to {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
+/* End of ElevatorPitch animation styles */
+
+/* Portfolio Page Animation Styles */
+.particles-container-portfolio {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle-portfolio {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(247, 148, 30, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes float-portfolio {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--float-x, 20) * 1px), calc(var(--float-y, 10) * 1px)) scale(1.05);
+  }
+  100% {
+    transform: translate(0, calc(var(--float-y, 20) * 1px)) scale(1);
+  }
+}
+
+/* Responsive styles for portfolio cards */
+@media (max-width: 768px) {
+  .portfolio-card {
+    flex-direction: column !important;
+  }
+  
+  .portfolio-card > div {
+    width: 100% !important;
+  }
+}
+
+/* Styles for HeroSection mouse blob effect (from anh document) */
+.particle {
+  position: absolute; /* This might be overridden by inline styles but good for base */
+  border-radius: 50%;
+  pointer-events: none; /* Crucial so it doesn't block other interactions */
+  /* Default background and size can be set here if not always overridden by JS */
+  /* background: rgba(255, 255, 255, 0.5); */ /* Example from anh general particles */
+  /* width: 10px; */
+  /* height: 10px; */
+  /* z-index can also be defined here if consistent */
+}
+/* End of HeroSection mouse blob effect styles */
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Font declarations */
+  @font-face {
+    font-family: 'Avenir Black';
+    src: url('/fonts/Avenir-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Avenir Book';
+    src: url('/fonts/avenir-book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Avenir Black', sans-serif;
+  }
+
+  body, p, span, div, button, input, textarea, select {
+    font-family: 'Avenir Book', sans-serif;
+  }
+}
+
+/* Styles for ElevatorPitch animation (from an1 document) */
+.animated-section-ep {
+  position: relative;
+  min-height: 100vh; /* Or adjust as needed for the section height */
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #fffaed 30%, #fff5d6 60%, #ffd8b6 100%);
+  overflow: hidden; /* Important to contain animated elements */
+  padding: 4rem 2rem; /* Adjust padding as needed */
+  /* Ensure this section also participates in scroll snapping if desired, or remove if it causes issues */
+  /* scroll-snap-align: start; */ 
+}
+
+.background-animation-ep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Behind content */
+}
+
+.wave-ep {
+  position: absolute;
+  opacity: 0.2;
+  background: linear-gradient(90deg, #fff5d6, #ffea9e);
+  width: 200%;
+  height: 200px;
+  border-radius: 40%;
+  animation: wave-animation-ep 25s linear infinite;
+  transform-origin: center;
+}
+
+.wave-ep:nth-child(1) {
+  bottom: -80px;
+  animation-duration: 20s;
+}
+
+.wave-ep:nth-child(2) {
+  bottom: -60px;
+  animation-delay: -5s;
+  animation-duration: 17s;
+  opacity: 0.15;
+}
+
+.wave-ep:nth-child(3) {
+  bottom: -40px;
+  animation-delay: -10s;
+  animation-duration: 15s;
+  opacity: 0.1;
+}
+
+.gradient-blob-ep {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  background: #ffe066;
+  animation: float-ep 20s infinite alternate ease-in-out; /* Ensure this matches JS if overridden */
+}
+
+.blob1-ep {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -150px;
+  animation-duration: 25s;
+  background: #fffaed;
+}
+
+.blob2-ep {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -100px;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  background: #ffea9e;
+}
+
+.blob3-ep {
+  width: 250px;
+  height: 250px;
+  top: 30%;
+  left: 20%;
+  animation-duration: 15s;
+  animation-delay: 3s;
+  background: #ffd166;
+}
+
+.particles-container-ep {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Behind content, but can be above background-animation if needed */
+  pointer-events: none;
+}
+
+.particle-ep {
+  position: absolute;
+  /* Default size, will be overridden by JS */
+  width: 8px; 
+  height: 8px;
+  background: rgba(255, 230, 102, 0.3); /* Default particle color */
+  border-radius: 50%;
+  pointer-events: none; /* Individual particles should not intercept mouse events */
+  /* Animation will be set by JS */
+}
+
+.light-ray-ep {
+  position: absolute;
+  width: 3px;
+  /* height will be set inline */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  transform-origin: top;
+  animation: ray-rotation-ep 10s infinite linear;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+@keyframes wave-animation-ep {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0%) rotate(360deg);
+  }
+}
+
+/* Using a more subtle float for particles to avoid being too distracting */
+@keyframes float-ep {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--float-x, 20) * 1px), calc(var(--float-y, 10) * 1px)) scale(1.05); 
+  }
+  100% {
+    transform: translate(0, calc(var(--float-y, 20) * 1px)) scale(1);
+  }
+}
+
+
+@keyframes ray-rotation-ep {
+  from {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  to {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
+/* End of ElevatorPitch animation styles */
+
+/* Styles for HeroSection mouse blob effect (from anh document) */
+.particle {
+  position: absolute; /* This might be overridden by inline styles but good for base */
+  border-radius: 50%;
+  pointer-events: none; /* Crucial so it doesn't block other interactions */
+  /* Default background and size can be set here if not always overridden by JS */
+  /* background: rgba(255, 255, 255, 0.5); */ /* Example from anh general particles */
+  /* width: 10px; */
+  /* height: 10px; */
+  /* z-index can also be defined here if consistent */
+}
+/* End of HeroSection mouse blob effect styles */
+
+
+@layer components {
+  /* Custom container class */
+  .container-custom {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    max-width: 80rem;
+}
+
+@media (min-width: 768px) {
+    .container-custom {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-custom {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+  }
+
+  /* Section styles */
+  .section {
+    @apply min-h-screen w-full flex flex-col justify-center items-center py-16;
+    /* scroll-snap-align: start; */ /* Removed to prevent snapping issues with new hero */
+  }
+
+  /* Animated gradient backgrounds */
+  .animated-gradient {
+    background: linear-gradient(-45deg, #FF9F1C, #e67e22, #f39c12, #FFA726);
+    background-size: 300% 300%;
+    animation: gradient 8s ease infinite;
+  }
+
+  .interactive-gradient {
+    background: linear-gradient(135deg, #FF9F1C, #e67e22, #f39c12, #FFA726);
+    background-size: 400% 400%;
+    transition: all 0.3s ease;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-[#231f20] text-white hover:bg-opacity-90 transition-all duration-300 rounded-md px-6 py-3 font-bold tracking-wide;
+  }
+
+  /* Cards */
+  .card-custom {
+    @apply bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+  }
+}
+
+/* Styles for ElevatorPitch animation (from an1 document) */
+.animated-section-ep {
+  position: relative;
+  min-height: 100vh; /* Or adjust as needed for the section height */
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #fffaed 30%, #fff5d6 60%, #ffd8b6 100%);
+  overflow: hidden; /* Important to contain animated elements */
+  padding: 4rem 2rem; /* Adjust padding as needed */
+  /* Ensure this section also participates in scroll snapping if desired, or remove if it causes issues */
+  /* scroll-snap-align: start; */ 
+}
+
+.background-animation-ep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Behind content */
+}
+
+.wave-ep {
+  position: absolute;
+  opacity: 0.2;
+  background: linear-gradient(90deg, #fff5d6, #ffea9e);
+  width: 200%;
+  height: 200px;
+  border-radius: 40%;
+  animation: wave-animation-ep 25s linear infinite;
+  transform-origin: center;
+}
+
+.wave-ep:nth-child(1) {
+  bottom: -80px;
+  animation-duration: 20s;
+}
+
+.wave-ep:nth-child(2) {
+  bottom: -60px;
+  animation-delay: -5s;
+  animation-duration: 17s;
+  opacity: 0.15;
+}
+
+.wave-ep:nth-child(3) {
+  bottom: -40px;
+  animation-delay: -10s;
+  animation-duration: 15s;
+  opacity: 0.1;
+}
+
+.gradient-blob-ep {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  background: #ffe066;
+  animation: float-ep 20s infinite alternate ease-in-out; /* Ensure this matches JS if overridden */
+}
+
+.blob1-ep {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -150px;
+  animation-duration: 25s;
+  background: #fffaed;
+}
+
+.blob2-ep {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -100px;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  background: #ffea9e;
+}
+
+.blob3-ep {
+  width: 250px;
+  height: 250px;
+  top: 30%;
+  left: 20%;
+  animation-duration: 15s;
+  animation-delay: 3s;
+  background: #ffd166;
+}
+
+.particles-container-ep {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Behind content, but can be above background-animation if needed */
+  pointer-events: none;
+}
+
+.particle-ep {
+  position: absolute;
+  /* Default size, will be overridden by JS */
+  width: 8px; 
+  height: 8px;
+  background: rgba(255, 230, 102, 0.3); /* Default particle color */
+  border-radius: 50%;
+  pointer-events: none; /* Individual particles should not intercept mouse events */
+  /* Animation will be set by JS */
+}
+
+.light-ray-ep {
+  position: absolute;
+  width: 3px;
+  /* height will be set inline */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  transform-origin: top;
+  animation: ray-rotation-ep 10s infinite linear;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+@keyframes wave-animation-ep {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0%) rotate(360deg);
+  }
+}
+
+/* Using a more subtle float for particles to avoid being too distracting */
+@keyframes float-ep {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--float-x, 20) * 1px), calc(var(--float-y, 10) * 1px)) scale(1.05); 
+  }
+  100% {
+    transform: translate(0, calc(var(--float-y, 20) * 1px)) scale(1);
+  }
+}
+
+
+@keyframes ray-rotation-ep {
+  from {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  to {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
+/* End of ElevatorPitch animation styles */
+
+/* Styles for HeroSection mouse blob effect (from anh document) */
+.particle {
+  position: absolute; /* This might be overridden by inline styles but good for base */
+  border-radius: 50%;
+  pointer-events: none; /* Crucial so it doesn't block other interactions */
+  /* Default background and size can be set here if not always overridden by JS */
+  /* background: rgba(255, 255, 255, 0.5); */ /* Example from anh general particles */
+  /* width: 10px; */
+  /* height: 10px; */
+  /* z-index can also be defined here if consistent */
+}
+/* End of HeroSection mouse blob effect styles */
+
+
+@layer utilities {
+  /* Scroll snap container - Potentially problematic, consider removing if global snapping is not desired */
+  /* .scroll-snap-container {
+    @apply h-screen overflow-y-auto overflow-x-hidden;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+  } */
+
+  /* Custom animations */
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 50% 100%;
+    }
+    75% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(100px, 100px) rotate(90deg);
+    }
+    50% {
+      transform: translate(200px, 50px) rotate(180deg);
+    }
+    75% {
+      transform: translate(100px, -50px) rotate(270deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(360deg);
+    }
+  }
+
+  /* Responsive adjustments for new hero */
+  @media (max-width: 768px) {
+    .hero-title-new {
+      font-size: 3rem;
+    }
+    .hero-subtitle-new {
+      font-size: 0.6rem;
+    }
+  }
+}
+
+/* Styles for ElevatorPitch animation (from an1 document) */
+.animated-section-ep {
+  position: relative;
+  min-height: 100vh; /* Or adjust as needed for the section height */
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #fffaed 30%, #fff5d6 60%, #ffd8b6 100%);
+  overflow: hidden; /* Important to contain animated elements */
+  padding: 4rem 2rem; /* Adjust padding as needed */
+  /* Ensure this section also participates in scroll snapping if desired, or remove if it causes issues */
+  /* scroll-snap-align: start; */ 
+}
+
+.background-animation-ep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Behind content */
+}
+
+.wave-ep {
+  position: absolute;
+  opacity: 0.2;
+  background: linear-gradient(90deg, #fff5d6, #ffea9e);
+  width: 200%;
+  height: 200px;
+  border-radius: 40%;
+  animation: wave-animation-ep 25s linear infinite;
+  transform-origin: center;
+}
+
+.wave-ep:nth-child(1) {
+  bottom: -80px;
+  animation-duration: 20s;
+}
+
+.wave-ep:nth-child(2) {
+  bottom: -60px;
+  animation-delay: -5s;
+  animation-duration: 17s;
+  opacity: 0.15;
+}
+
+.wave-ep:nth-child(3) {
+  bottom: -40px;
+  animation-delay: -10s;
+  animation-duration: 15s;
+  opacity: 0.1;
+}
+
+.gradient-blob-ep {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  background: #ffe066;
+  animation: float-ep 20s infinite alternate ease-in-out; /* Ensure this matches JS if overridden */
+}
+
+.blob1-ep {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -150px;
+  animation-duration: 25s;
+  background: #fffaed;
+}
+
+.blob2-ep {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -100px;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  background: #ffea9e;
+}
+
+.blob3-ep {
+  width: 250px;
+  height: 250px;
+  top: 30%;
+  left: 20%;
+  animation-duration: 15s;
+  animation-delay: 3s;
+  background: #ffd166;
+}
+
+.particles-container-ep {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Behind content, but can be above background-animation if needed */
+  pointer-events: none;
+}
+
+.particle-ep {
+  position: absolute;
+  /* Default size, will be overridden by JS */
+  width: 8px; 
+  height: 8px;
+  background: rgba(255, 230, 102, 0.3); /* Default particle color */
+  border-radius: 50%;
+  pointer-events: none; /* Individual particles should not intercept mouse events */
+  /* Animation will be set by JS */
+}
+
+.light-ray-ep {
+  position: absolute;
+  width: 3px;
+  /* height will be set inline */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  transform-origin: top;
+  animation: ray-rotation-ep 10s infinite linear;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+@keyframes wave-animation-ep {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0%) rotate(360deg);
+  }
+}
+
+/* Using a more subtle float for particles to avoid being too distracting */
+@keyframes float-ep {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--float-x, 20) * 1px), calc(var(--float-y, 10) * 1px)) scale(1.05); 
+  }
+  100% {
+    transform: translate(0, calc(var(--float-y, 20) * 1px)) scale(1);
+  }
+}
+
+
+@keyframes ray-rotation-ep {
+  from {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  to {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
+/* End of ElevatorPitch animation styles */
+
+/* Styles for HeroSection mouse blob effect (from anh document) */
+.particle {
+  position: absolute; /* This might be overridden by inline styles but good for base */
+  border-radius: 50%;
+  pointer-events: none; /* Crucial so it doesn't block other interactions */
+  /* Default background and size can be set here if not always overridden by JS */
+  /* background: rgba(255, 255, 255, 0.5); */ /* Example from anh general particles */
+  /* width: 10px; */
+  /* height: 10px; */
+  /* z-index can also be defined here if consistent */
+}
+/* End of HeroSection mouse blob effect styles */
+
+
+/* New Hero Section Styles - Placed outside @layer to ensure they are applied */
+.hero-section-new {
+  scroll-snap-align: start; /* Ensure the new hero section itself snaps to start */
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #ffb347 0%, #f7941e 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* Restored to hidden to fix mobile responsiveness issues */
+  padding: 1rem;
+}
+
+.hero-content-new {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  width: 90%;
+  padding: 1.5rem;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.hero-title-new {
+  font-size: 2rem;
+  font-weight: 700;
+
+  margin-bottom: 0.75rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s forwards 0.5s;
+  line-height: 1.1;
+}
+
+@media (min-width: 640px) {
+  .hero-title-new {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title-new {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title-new {
+    font-size: 5rem;
+  }
+}
+
+.hero-subtitle-new {
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+
+  max-width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+@media (min-width: 640px) {
+  .hero-subtitle-new {
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle-new {
+    font-size: 1.1rem;
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-subtitle-new {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+}
+
+.cta-button-new {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: 2px solid #222;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s forwards 1.1s;
+}
+
+.cta-button-new:hover {
+  background: #ffb347;
+  color: #222;
+}
+
+.animated-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 15s infinite linear;
+}
+
+.shape1 {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  left: -150px;
+  animation-duration: 35s;
+}
+
+.shape2 {
+  width: 200px;
+  height: 200px;
+  bottom: -100px;
+  right: 10%;
+  animation-duration: 25s;
+  animation-delay: 2s;
+}
+
+.shape3 {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  right: -75px;
+  animation-duration: 30s;
+  animation-delay: 1s;
+}
+
+.shape4 {
+  width: 80px;
+  height: 80px;
+  top: 30%;
+  left: 10%;
+  animation-duration: 20s;
+  animation-delay: 4s;
+}
+
+.gradient-overlay-new {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(247, 148, 30, 0) 0%, rgba(247, 148, 30, 0) 100%);
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    /* background-color: #111; */ /* Potentially overridden by Tailwind's bg-background */
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+}
+
+/* Styles for ElevatorPitch animation (from an1 document) */
+.animated-section-ep {
+  position: relative;
+  min-height: 100vh; /* Or adjust as needed for the section height */
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #fffaed 30%, #fff5d6 60%, #ffd8b6 100%);
+  overflow: hidden; /* Important to contain animated elements */
+  padding: 4rem 2rem; /* Adjust padding as needed */
+  /* Ensure this section also participates in scroll snapping if desired, or remove if it causes issues */
+  /* scroll-snap-align: start; */ 
+}
+
+.background-animation-ep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Behind content */
+}
+
+.wave-ep {
+  position: absolute;
+  opacity: 0.2;
+  background: linear-gradient(90deg, #fff5d6, #ffea9e);
+  width: 200%;
+  height: 200px;
+  border-radius: 40%;
+  animation: wave-animation-ep 25s linear infinite;
+  transform-origin: center;
+}
+
+.wave-ep:nth-child(1) {
+  bottom: -80px;
+  animation-duration: 20s;
+}
+
+.wave-ep:nth-child(2) {
+  bottom: -60px;
+  animation-delay: -5s;
+  animation-duration: 17s;
+  opacity: 0.15;
+}
+
+.wave-ep:nth-child(3) {
+  bottom: -40px;
+  animation-delay: -10s;
+  animation-duration: 15s;
+  opacity: 0.1;
+}
+
+.gradient-blob-ep {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  background: #ffe066;
+  animation: float-ep 20s infinite alternate ease-in-out; /* Ensure this matches JS if overridden */
+}
+
+.blob1-ep {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -150px;
+  animation-duration: 25s;
+  background: #fffaed;
+}
+
+.blob2-ep {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -100px;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  background: #ffea9e;
+}
+
+.blob3-ep {
+  width: 250px;
+  height: 250px;
+  top: 30%;
+  left: 20%;
+  animation-duration: 15s;
+  animation-delay: 3s;
+  background: #ffd166;
+}
+
+.particles-container-ep {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Behind content, but can be above background-animation if needed */
+  pointer-events: none;
+}
+
+.particle-ep {
+  position: absolute;
+  /* Default size, will be overridden by JS */
+  width: 8px; 
+  height: 8px;
+  background: rgba(255, 230, 102, 0.3); /* Default particle color */
+  border-radius: 50%;
+  pointer-events: none; /* Individual particles should not intercept mouse events */
+  /* Animation will be set by JS */
+}
+
+.light-ray-ep {
+  position: absolute;
+  width: 3px;
+  /* height will be set inline */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  transform-origin: top;
+  animation: ray-rotation-ep 10s infinite linear;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+@keyframes wave-animation-ep {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0%) rotate(360deg);
+  }
+}
+
+/* Using a more subtle float for particles to avoid being too distracting */
+@keyframes float-ep {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--float-x, 20) * 1px), calc(var(--float-y, 10) * 1px)) scale(1.05); 
+  }
+  100% {
+    transform: translate(0, calc(var(--float-y, 20) * 1px)) scale(1);
+  }
+}
+
+
+@keyframes ray-rotation-ep {
+  from {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  to {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
+/* End of ElevatorPitch animation styles */
+
+/* Styles for HeroSection mouse blob effect (from anh document) */
+.particle {
+  position: absolute; /* This might be overridden by inline styles but good for base */
+  border-radius: 50%;
+  pointer-events: none; /* Crucial so it doesn't block other interactions */
+  /* Default background and size can be set here if not always overridden by JS */
+  /* background: rgba(255, 255, 255, 0.5); */ /* Example from anh general particles */
+  /* width: 10px; */
+  /* height: 10px; */
+  /* z-index can also be defined here if consistent */
+}
+@media (max-width: 639px) {
+  .hero-section-new h1,
+  .hero-section-new h2,
+  .hero-section-new h3,
+  .hero-section-new .hero-title-new,
+  .hero-section-new .hero-subtitle-new {
+    font-size: 1.2rem !important;      /* Reduced from 1.6rem to fix zoomed appearance */
+    line-height: 1.4 !important;
+    font-weight: 700;
+    word-break: normal !important;
+    white-space: normal !important;
+    letter-spacing: normal !important;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Additional mobile fixes for WhoWeBenefit page */
+  .animated-section-ep {
+    padding: 2rem 1rem;
+    overflow-x: hidden;
+    font-size: 0.9rem;
+  }
+  
+  .section {
+    overflow-x: hidden;
+    font-size: 0.9rem;
+  }
+  
+  /* Fix for carousel in WhoWeBenefit page */
+  .carousel {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    transform: scale(0.9);
+    margin: 0 auto;
+  }
+  
+  .carousel-content {
+    padding-bottom: 1rem;
+  }
+  
+  /* Reduce size of particles and animations */
+  .particle-ep {
+    transform: scale(0.7);
+  }
+  
+  .light-ray-ep {
+    transform: scale(0.7);
+  }
+  
+  .gradient-blob-ep {
+    transform: scale(0.7);
+  }
+  
+  /* Adjust card and content sizes */
+  .card {
+    padding: 0.75rem;
+  }
+  
+  .card-content {
+    padding: 0.75rem !important;
+  }
+  
+  /* Adjust text sizes */
+  h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem !important;
+  }
+  
+  p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* End of HeroSection mouse blob effect styles */
