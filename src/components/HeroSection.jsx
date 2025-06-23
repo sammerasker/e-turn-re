@@ -47,7 +47,7 @@ const HeroSection = () => {
       <motion.div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/src/assets/images/Black_colour-1-1-scaled.jpg')`
+          backgroundImage: `url('/Black_colour-1-1-scaled.jpg')`
         }}
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
