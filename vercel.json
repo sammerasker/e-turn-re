@@ -1,7 +1,8 @@
 {
   "build": {
     "env": {
-      "PNPM_HOME": "/usr/local/bin/pnpm",
+      "PNPM_HOME": "~/.pnpm",
+      "PNPM_VERSION": "10.4.1",
       "NODE_VERSION": "20.x"
     }
   }
