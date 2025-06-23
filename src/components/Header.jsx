@@ -98,7 +98,7 @@ const Header = () => {
           onClick={() => handleMenuClick('#home')}
         >
           <motion.img 
-            src="/src/assets/favicon.ico" 
+            src="/src/assets/favicon.svg" 
             alt="e-turn Ventures Studio" 
             className="w-8 h-8 mr-3"
             animate={{ rotate: 360 }}
