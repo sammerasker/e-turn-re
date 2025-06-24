@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button.jsx';
 
 const Header = () => {
@@ -8,8 +9,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -17,71 +17,59 @@ const Header = () => {
   }, []);
 
   const menuItems = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About Us" },
-    { href: "#services", label: "Our Offering" },
-    { href: "#advantages", label: "Advantages" },
-    { href: "#methodology", label: "Our Methodology" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#newsletter", label: "Newsletter" }
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About Us' },
+    { to: '/our-offerings', label: 'Our Offering' },
+    { to: '/who-we-benefit', label: 'Advantages' },
+    { to: '/our-methodology', label: 'Our Methodology' },
+    { to: '/portfolio', label: 'Portfolio' },
+    { to: '/connect', label: 'Connect' }
   ];
 
   const headerVariants = {
     initial: { y: -100, opacity: 0 },
-    animate: { 
-      y: 0, 
-      opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+    animate: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } }
   };
 
   const logoVariants = {
     initial: { scale: 0, rotate: -180 },
-    animate: { 
-      scale: 1, 
+    animate: {
+      scale: 1,
       rotate: 0,
-      transition: { duration: 0.8, ease: "easeOut", delay: 0.2 }
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 }
     }
   };
 
   const menuItemVariants = {
     initial: { opacity: 0, y: -20 },
-    animate: { 
-      opacity: 1, 
+    animate: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.4 }
     },
     hover: {
       scale: 1.05,
-      color: "#fb923c",
+      color: '#fb923c',
       transition: { duration: 0.2 }
     }
   };
 
   const mobileMenuVariants = {
     initial: { opacity: 0, height: 0 },
-    animate: { 
-      opacity: 1, 
-      height: "auto",
-      transition: { duration: 0.3, ease: "easeOut" }
+    animate: {
+      opacity: 1,
+      height: 'auto',
+      transition: { duration: 0.3, ease: 'easeOut' }
     },
-    exit: { 
-      opacity: 0, 
+    exit: {
+      opacity: 0,
       height: 0,
-      transition: { duration: 0.3, ease: "easeIn" }
-    }
-  };
-
-  const handleMenuClick = (href) => {
-    setIsMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      transition: { duration: 0.3, ease: 'easeIn' }
     }
   };
 
   return (
-    <motion.header 
+    <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg' : 'bg-black/90 backdrop-blur-sm'
       }`}
@@ -91,62 +79,63 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <motion.div 
+        <motion.div
           className="flex items-center cursor-pointer"
           variants={logoVariants}
           whileHover={{ scale: 1.05 }}
-          onClick={() => handleMenuClick('#home')}
         >
-          <motion.img 
-            src="/src/assets/favicon.svg" 
-            alt="e-turn Ventures Studio" 
-            className="w-8 h-8 mr-3"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          />
-          <motion.span 
-            className="text-white text-xl font-bold"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            e-turn Ventures Studio
-          </motion.span>
+          <Link to="/" className="flex items-center">
+            <motion.img
+              src="/src/assets/favicon.png"
+              alt="e-turn Ventures Studio"
+              className="w-8 h-8 mr-3"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+            />
+            <motion.span
+              className="text-white text-xl font-bold"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              e-turn Ventures Studio
+            </motion.span>
+          </Link>
         </motion.div>
 
-        {/* Navigation */}
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8">
           {menuItems.map((item, index) => (
-            <motion.a
-              key={item.href}
-              href={item.href}
-              className="text-white hover:text-orange-400 transition-colors cursor-pointer"
+            <motion.div
+              key={item.to}
               variants={menuItemVariants}
               initial="initial"
               animate="animate"
               whileHover="hover"
               transition={{ delay: index * 0.1 }}
-              onClick={(e) => {
-                e.preventDefault();
-                handleMenuClick(item.href);
-              }}
             >
-              {item.label}
-            </motion.a>
+              <Link
+                to={item.to}
+                className="text-white hover:text-orange-400 transition-colors cursor-pointer"
+              >
+                {item.label}
+              </Link>
+            </motion.div>
           ))}
         </nav>
 
-        {/* Book Appointment Button */}
+        {/* Placeholder for button (if needed later) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-        
+          {/* Example Button Placeholder */}
+          {/* <Button>Book Appointment</Button> */}
         </motion.div>
 
         {/* Mobile Menu Button */}
-        <motion.button 
+        <motion.button
           className="md:hidden text-white relative z-50"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           whileHover={{ scale: 1.1 }}
@@ -176,7 +165,7 @@ const Header = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             className="md:hidden bg-black/95 backdrop-blur-sm border-t border-gray-800"
             variants={mobileMenuVariants}
             initial="initial"
@@ -185,21 +174,21 @@ const Header = () => {
           >
             <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
               {menuItems.map((item, index) => (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  className="text-white hover:text-orange-400 transition-colors py-2 border-b border-gray-800 last:border-b-0"
+                <motion.div
+                  key={item.to}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  whileHover={{ x: 10, color: "#fb923c" }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleMenuClick(item.href);
-                  }}
+                  whileHover={{ x: 10 }}
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.label}
-                </motion.a>
+                  <Link
+                    to={item.to}
+                    className="text-white hover:text-orange-400 transition-colors py-2 border-b border-gray-800 last:border-b-0 block"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
           </motion.div>
@@ -210,4 +199,3 @@ const Header = () => {
 };
 
 export default Header;
-
