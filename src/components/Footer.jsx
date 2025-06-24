@@ -45,7 +45,7 @@ const Footer = () => {
               <p>Dubai, UAE</p>
               <p>+20 122 1401400</p>
               <p>+971 58 1962613</p>
-              <p>Email: hello@eturn.com</p>
+              <p>email: hello@eturn.com</p>
             </div>
           </div>
         </div>
