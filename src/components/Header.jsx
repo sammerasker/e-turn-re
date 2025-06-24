@@ -85,9 +85,9 @@ const Header = () => {
           whileHover={{ scale: 1.05 }}
         >
           <Link to="/" className="flex items-center">
-            <motion.img
-              src="/src/assets/favicon.png"
-              alt="e-turn Ventures Studio"
+           <motion.img
+              src="/favicon.png"
+              alt="e-turn"
               className="w-8 h-8 mr-3"
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
