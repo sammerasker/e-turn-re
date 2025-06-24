@@ -11,8 +11,8 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Users, DollarSign, Building, Rocket, Linkedin } from "lucide-react";
-import { toast } from "sonner";
-import { motion } from 'framer-motion'; // Ensure motion is imported
+import { toast, Toaster } from "sonner"; // Import Toaster as well
+import { motion } from 'framer-motion';
 
 const Connect = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -258,6 +258,15 @@ const Connect = () => {
     .animate-on-scroll {
       opacity: 0; /* Start invisible */
     }
+
+    /* Custom Toast Styling */
+    .custom-toast-success {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(253, 224, 71, 0.4)); /* Black to yellow-400 with transparency */
+      color: white;
+      border-radius: 0.5rem; /* rounded-lg */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-weight: 500;
+    }
   `;
 
   useEffect(() => {
@@ -421,7 +430,10 @@ const Connect = () => {
       const response = await window.emailjs.send("service_tkd6izv", "template_17z3jge", templateParams);
 
       if (response.status === 200) {
-        toast.success("Your message has been sent successfully!");
+        toast.success("Your message was sent, we'll contact you as soon as possible", {
+          duration: 5000, // 5 seconds
+          className: "custom-toast-success", // Apply custom class for styling
+        });
         setFormData({
           name: "",
           email: "",
@@ -474,6 +486,8 @@ const Connect = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-['Inter']">
+      <Toaster position="bottom-right" richColors /> {/* Toaster component added */}
+
       {/* Hero Section & Connect Options - Animated */}
       <section ref={heroSectionRef} className="relative overflow-hidden animated-section-ep bg-black pt-20 md:pt-24 pb-16">
         {/* Background animation elements */}
@@ -533,7 +547,7 @@ const Connect = () => {
                   </CardHeader>
                   <CardContent className="flex justify-center pb-6">
                     <Button
-                      className="bg-[#FF9F1C] text-white hover:bg-opacity-90 font-semibold px-6 py-2 rounded-full"
+                      className="bg-[#FF9F1C] text-white hover:bg-opacity-90 font-semibold px-6 py-2 rounded-full cursor-pointer" // Added cursor-pointer
                       onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                       {option.buttonText}
@@ -638,7 +652,8 @@ const Connect = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#FF9F1C] text-white hover:bg-opacity-90 font-semibold rounded-full"
+                    className="w-full bg-[#FF9F1C] text-white hover:bg-yellow-800 font-semibold rounded-full cursor-pointer" // Added cursor-pointer
+
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
