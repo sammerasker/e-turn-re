@@ -477,7 +477,7 @@ const About = () => {
             transition={{ delay: 0.4 }}
           >
             <Link to="/connect">
-              <Button size="lg" className="bg-[#FF9F1C] text-white hover:bg-opacity-90 font-semibold px-8 py-6 text-lg rounded-full">
+              <Button size="lg" className="bg-[#FF9F1C] text-white hover:bg-yellow-800 font-semibold px-8 py-6 text-lg rounded-full cursor-pointer">
                 Partner With Us
               </Button>
             </Link>
@@ -486,7 +486,7 @@ const About = () => {
       </section>
 
       {/* Second Section - Our Story (Non-Animated) */}
-      <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 py-16 md:py-24 overflow-hidden bg-gray-900">
+      <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 py-16 md:py-24 overflow-hidden bg-black">
         <div className="relative z-10 max-w-5xl mx-auto">
           <motion.h2
             className="text-3xl md:text-5xl font-bold mb-8 text-center text-white"
@@ -505,7 +505,7 @@ const About = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <motion.div variants={fadeInUpVariants} className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-lg">
+            <motion.div variants={fadeInUpVariants} className="bg-gradient-to-br from-stone-900 via-stone-900 to-orange-900 backdrop-blur-sm border border-white/20 p-6 rounded-lg">
               <p className="mb-4">
                 Founded in 2023, E-Turn emerged from a vision to transform how ventures are built in the MENA region. Our founders, with decades of combined experience in entrepreneurship, technology, and venture capital, recognized a critical gap: the need for a hands-on venture studio that truly co-creates with founders.
               </p>
@@ -513,7 +513,7 @@ const About = () => {
                 Unlike traditional incubators or accelerators, we don't just advise—we build alongside you. We contribute technical expertise, business acumen, and regional insights while sharing both risk and reward. This partnership model has proven to dramatically increase success rates for early-stage ventures.
               </p>
             </motion.div>
-            <motion.div variants={fadeInUpVariants} className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-lg">
+            <motion.div variants={fadeInUpVariants} className="bg-gradient-to-br from-stone-800 via-stone-700 to-orange-900 backdrop-blur-sm border border-white/20 p-6 rounded-lg">
               <p className="mb-4">
                 Our name, E-Turn, represents the pivotal moment when an idea transforms into a viable business—the entrepreneurial turn that changes trajectories and creates impact. We exist to make these turns more successful, more strategic, and more sustainable.
               </p>
@@ -793,7 +793,7 @@ const About = () => {
             transition={{ delay: 0.4 }}
           >
             <Link to="/connect">
-              <Button size="lg" className="bg-[#FF9F1C] text-white hover:bg-opacity-90 font-semibold px-8 py-6 text-lg rounded-full">
+              <Button size="lg" className="bg-[#FF9F1C] text-white hover:bg-yellow-800 font-semibold px-8 py-6 text-lg rounded-full cursor-pointer" >
                 Get in Touch
               </Button>
             </Link>

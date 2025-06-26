@@ -563,106 +563,90 @@ export default function OfferingPage() {
       </section>
 
       {/* How We Partner (Header) - Non-Animated (Simple background) */}
-      <section className="bg-black py-8">
+      <section className="animated-section-ep text-white pt-10 bg-black pb-10">
+        <div className="background-animation-ep">
+          <div className="wave-ep"></div>
+          <div className="wave-ep"></div>
+          <div className="wave-ep"></div>
+          <div className="gradient-blob-ep blob1-ep"></div>
+          <div className="gradient-blob-ep blob2-ep"></div>
+          <div className="gradient-blob-ep blob3-ep"></div>
+        </div>
         <motion.div
-          className="max-w-6xl mx-auto flex justify-center px-3 sm:px-4 md:px-6"
+          className="max-w-6xl mx-auto flex flex-col items-center px-3 sm:px-4 md:px-6"
           variants={fadeInUpVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="bg-white/10 p-4 sm:p-6 md:p-8 rounded-t-lg sm:rounded-t-xl shadow hover:shadow-md transition w-full max-w-xl text-center text-white backdrop-blur border border-white/20">
+          <div className="p-4 hover:shadow-md transition w-full max-w-xl text-center text-white backdrop-blur">
             <h1 className="text-lg sm:text-xl font-bold">How We Partner</h1>
             <h2 className="text-lg sm:text-xl font-bold">Partnership Approaches</h2>
-            <h3 className="text-sm sm:text-base mt-1">Choose the Model That Fits Your Journey</h3>
+            <h3 className="text-sm sm:text-base mt-1">Choose the Model That Fits Your Journey:</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            {
+              [
+                {
+                  title: "Co-Creation Model",
+                  icon: <Handshake className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-[#FFD166]" />,
+                  paragraph: "For Entrepreneurs with Domain Expertise Seeking Concepts: We jointly identify market opportunities and co-create ventures from the ground up, combining your expertise with our operational excellence. What's Included:",
+                  desc: [
+                    "Collaborative opportunity identification and validation",
+                    "Joint concept development and market testing",
+                    "Shared decision-making and strategic planning",
+                    "Integrated team formation and role definitionTechnical expertise",
+                    "Aligned success metrics and milestone tracking"
+                  ],
+                  footer: "Best For: Industry experts, experienced professionals, and domain specialists ready to build their next venture with proven co-founding support.",
+                },
+                {
+                  title: "Builder Model",
+                  icon: <Rocket className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-[#FFD166]" />,
+                  paragraph: "For Founders with Validated Ideas: We provide comprehensive resources to build, launch, and scale your vision, acting as your ultimate co-founding partner throughout the entire journey. What's Included:",
+                  desc: [
+                    "Full operational support and resource allocation",
+                    "End-to-end execution across all business functions",
+                    "Access to our complete network and ecosystem",
+                    "Strategic guidance and hands-on mentorship",
+                    "Scalable systems and process implementation"
+                  ],
+                  footer:
+                    "Best For: Founders with validated concepts who need comprehensive support, resources, and expertise to build and scale effectively.",
+                },
+                {
+                  title: "Accelerator Model",
+                  icon: <Zap className="w-16 h-16 text-[#FFD166]" />,
+                  paragraph: "For Early-Stage Startups with MVP: We supercharge your existing momentum with strategic guidance, technical resources, and market access to accelerate growth and optimization. What's Included:",
+                  desc: [
+                    "Growth optimization and scaling strategies",
+                    "Market expansion planning and execution",
+                    "Investment preparation and investor connections",
+                    "Operational efficiency improvements",
+                    "Strategic partnership facilitation"
+                  ],
+                  footer:
+                    "Best For: Early-stage startups with working products seeking to accelerate growth, optimize operations, and prepare for significant scaling or investment rounds.",
+                }
+              ].map(({ title, icon, paragraph, desc, footer }, i) => (
+                <div key={i} className="bg-gray-900 p-6 rounded-lg flex flex-col">
+                  <div className="flex-shrink-0">{icon}</div>
+                  <h4 className="text-xl font-bold mt-4">{title}</h4>
+                  <p className="text-white/80 mt-2">{paragraph}</p>
+                  <ul className="list-disc list-inside space-y-1 text-white/80 mt-4">
+                    {desc.map((item, j) => <li key={j}>{item}</li>)}
+                  </ul>
+                  <p className="text-xs italic text-white/60 mt-auto pt-4">{footer}</p>
+                </div>
+              ))
+            }
           </div>
         </motion.div>
       </section>
 
-      {/* Partnership Models - Alternating Animation */}
-      {[
-        {
-          title: "Co-Creation Model",
-          icon: <Handshake className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-[#FFD166]" />,
-          paragraph: "For Entrepreneurs with Domain Expertise Seeking Concepts: We jointly identify market opportunities and co-create ventures from the ground up, combining your expertise with our operational excellence. What's Included:",
-          desc: [
-            "Collaborative opportunity identification and validation",
-            "Joint concept development and market testing",
-            "Shared decision-making and strategic planning",
-            "Integrated team formation and role definitionTechnical expertise",
-            "Aligned success metrics and milestone tracking"
-          ],
-          footer: "Best For: Industry experts, experienced professionals, and domain specialists ready to build their next venture with proven co-founding support.",
-          sectionBg: "bg-gray-900" // Non-animated background
-        },
-        {
-          title: "Builder Model",
-          icon: <Rocket className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-[#FFD166]" />,
-          paragraph: "For Founders with Validated Ideas: We provide comprehensive resources to build, launch, and scale your vision, acting as your ultimate co-founding partner throughout the entire journey. What's Included:",
-          desc: [
-            "Full operational support and resource allocation",
-            "End-to-end execution across all business functions",
-            "Access to our complete network and ecosystem",
-            "Strategic guidance and hands-on mentorship",
-            "Scalable systems and process implementation"
-          ],
-          footer:
-            "Best For: Founders with validated concepts who need comprehensive support, resources, and expertise to build and scale effectively.",
-          sectionBg: "bg-black" // Animated background
-        },
-        {
-          title: "Accelerator Model",
-          icon: <Zap className="w-16 h-16 text-[#FFD166]" />,
-          paragraph: "For Early-Stage Startups with MVP: We supercharge your existing momentum with strategic guidance, technical resources, and market access to accelerate growth and optimization. What's Included:",
-          desc: [
-            "Growth optimization and scaling strategies",
-            "Market expansion planning and execution",
-            "Investment preparation and investor connections",
-            "Operational efficiency improvements",
-            "Strategic partnership facilitation"
-          ],
-          footer:
-            "Best For: Early-stage startups with working products seeking to accelerate growth, optimize operations, and prepare for significant scaling or investment rounds.",
-          sectionBg: "bg-gray-900" // Non-animated background
-        }
-      ].map(({ title, icon, paragraph, desc, footer, sectionBg }, i) => (
-        <section
-          key={i}
-          className={`${i % 2 !== 0 ? 'animated-section-ep' : ''} ${sectionBg} text-white py-8 sm:py-12 md:py-16`}
-        >
-          {/* Only render background animations if it's an animated section (odd index for this alternating pattern) */}
-          {i % 2 !== 0 && (
-            <div className="background-animation-ep">
-              <div className="wave-ep"></div>
-              <div className="wave-ep"></div>
-              <div className="wave-ep"></div>
-              <div className="gradient-blob-ep blob1-ep"></div>
-              <div className="gradient-blob-ep blob2-ep"></div>
-              <div className="gradient-blob-ep blob3-ep"></div>
-            </div>
-          )}
-          <motion.div
-            className="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-10 px-3 sm:px-4 md:px-6"
-            variants={staggerContainerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <motion.div variants={fadeInUpVariants}>{icon}</motion.div>
-            <div className="text-center md:text-left">
-              <motion.h3 variants={fadeInUpVariants} className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">{title}</motion.h3>
-              {paragraph && <motion.p variants={fadeInUpVariants} className="text-xs sm:text-sm mb-2 sm:mb-3 max-w-lg text-white/80">{paragraph}</motion.p>}
-              <motion.ul variants={fadeInUpVariants} className="list-disc pl-4 space-y-0.5 sm:space-y-1 text-xs sm:text-sm text-white/80">
-                {desc.map((d, j) => <li key={j}>{d}</li>)}
-              </motion.ul>
-              {footer && <motion.p variants={fadeInUpVariants} className="mt-3 sm:mt-4 text-xs sm:text-sm italic text-white">{footer}</motion.p>}
-            </div>
-          </motion.div>
-        </section>
-      ))}
-
-      {/* Flexible Engagement Models - Non-Animated */}
-      <section className="py-10 sm:py-14 md:py-20 bg-gray-900">
+      {/* Flexible Engagement Models - Animated */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-900">
         <motion.h3
           className="text-center text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 md:mb-12 text-white px-3 sm:px-4"
           variants={fadeInUpVariants}
@@ -714,7 +698,7 @@ export default function OfferingPage() {
         </motion.div>
       </section>
 
-      {/* Investment & Capital Section - Animated */}
+      {/* Investment & Capital Section */}
       <section className="animated-section-ep py-12 sm:py-16 md:py-20 bg-black">
         <div className="background-animation-ep">
           <div className="wave-ep"></div>
@@ -725,15 +709,11 @@ export default function OfferingPage() {
           <div className="gradient-blob-ep blob3-ep"></div>
         </div>
         <div className="relative z-10">
-          <motion.div
+          <div
             className="max-w-6xl mx-auto px-4 sm:px-6"
-            variants={staggerContainerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
-            <motion.h2 variants={fadeInUpVariants} className="text-2xl sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 text-white">Investment & Capital</motion.h2>
-            <motion.div variants={fadeInUpVariants} className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 text-white">Investment & Capital</h2>
+            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
               <h3 className="text-lg sm:text-xl font-semibold text-[#FF9F1C] mb-2 flex items-center justify-center gap-1 sm:gap-2">
                 <Banknote className="w-5 h-5 sm:w-6 sm:h-6" />
                 Strategic Investment Offering
@@ -741,13 +721,15 @@ export default function OfferingPage() {
               <p className="text-xs sm:text-sm text-white/80">
                 We selectively invest in high-potential ventures that align with our studio model, providing both strategic capital and comprehensive operational support to accelerate growth.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeInUpVariants} className="bg-white/10 p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-xl shadow mb-8 sm:mb-12 text-white border border-white/20">
+
+            <div className="bg-white/10 p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-xl shadow mb-8 sm:mb-12 text-white border border-white/20">
               <h4 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Our Investment Approach</h4>
               <p className="text-xs sm:text-sm text-white/80 mb-3 sm:mb-4">
                 Unlike traditional investors, we combine capital with hands-on operational partnership. When we invest, you gain not just funding but a committed co-founding partner dedicated to your success.
               </p>
+
 
               <h5 className="font-bold mt-4 sm:mt-6 mb-1 sm:mb-2">Investment Criteria:</h5>
               <ul className="list-disc list-inside text-xs sm:text-sm text-white/80 space-y-0.5 sm:space-y-1">
@@ -758,6 +740,7 @@ export default function OfferingPage() {
                 <li>Commitment to long-term partnership and collaborative growth</li>
               </ul>
 
+
               <h5 className="font-bold mt-4 sm:mt-6 mb-1 sm:mb-2">What You Get Beyond Capital:</h5>
               <ul className="list-disc list-inside text-xs sm:text-sm text-white/80 space-y-0.5 sm:space-y-1">
                 <li>Full access to our operational capabilities and resources</li>
@@ -766,15 +749,12 @@ export default function OfferingPage() {
                 <li>Ongoing strategic guidance through scaling and exit phases</li>
                 <li>Integrated support across all critical business functions</li>
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.h3 variants={fadeInUpVariants} className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-white">The e-turn Advantage</motion.h3>
-            <motion.div
+
+            <h3 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-white">The e-turn Advantage</h3>
+            <div
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center"
-              variants={staggerContainerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
             >
               {[
                 {
@@ -798,19 +778,19 @@ export default function OfferingPage() {
                   desc: "We’re in it for the long haul—with you through growth, scale, and exit."
                 }
               ].map(({ icon, title, desc }, i) => (
-                <motion.div key={i} className="bg-white/10 p-3 sm:p-4 rounded-lg sm:rounded-xl shadow text-white border border-white/20" variants={fadeInUpVariants}>
+                <div key={i} className="bg-white/10 p-3 sm:p-4 rounded-lg sm:rounded-xl shadow text-white border border-white/20">
                   <div className="mb-1 sm:mb-2">{icon}</div>
                   <h4 className="font-bold text-base sm:text-lg">{title}</h4>
                   <p className="text-xs sm:text-sm text-white/80 mt-0.5 sm:mt-1">{desc}</p>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* CTA - Non-Animated */}
-      <section className="bg-black py-12 sm:py-16 md:py-24 text-white text-center relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-900">
         <motion.div
           className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6"
           variants={staggerContainerVariants}
@@ -859,7 +839,7 @@ export default function OfferingPage() {
             ))}
           </motion.div>
 
-          <motion.div variants={fadeInUpVariants} className="mt-8 sm:mt-10 md:mt-12">
+          <motion.div variants={fadeInUpVariants} className="mt-8 sm:mt-10 md:mt-12 flex justify-center">
             <Link to="/connect">
               <Button size="lg" className="bg-[#FF9F1C] text-white hover:bg-opacity-90 text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3">
                 Start Your Partnership Journey

@@ -652,7 +652,7 @@ const Connect = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#FF9F1C] text-white hover:bg-yellow-800 font-semibold rounded-full cursor-pointer" // Added cursor-pointer
+                    className="w-full bg-[#FF9F1C] text-white hover:bg-yellow-800 font-semibold rounded-full cursor-pointer" 
 
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
