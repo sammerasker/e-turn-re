@@ -572,6 +572,7 @@ export default function OfferingPage() {
           <div className="gradient-blob-ep blob2-ep"></div>
           <div className="gradient-blob-ep blob3-ep"></div>
         </div>
+        
         <motion.div
           className="max-w-6xl mx-auto flex flex-col items-center px-3 sm:px-4 md:px-6"
           variants={fadeInUpVariants}
@@ -580,12 +581,13 @@ export default function OfferingPage() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className="p-4 hover:shadow-md transition w-full max-w-xl text-center text-white backdrop-blur">
-            <h1 className="text-lg sm:text-xl font-bold">How We Partner</h1>
-            <h2 className="text-lg sm:text-xl font-bold">Partnership Approaches</h2>
-            <h3 className="text-sm sm:text-base mt-1">Choose the Model That Fits Your Journey:</h3>
+           
           </div>
-
+ <h1 className="text-1xl sm:text-3xl md:text-4xl font-bold text-white">How We Partner?</h1>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-400">Partnership Approaches</h2>
+            <h3 className="text-xl sm:text-2xl md:text-2xl font-bold text-white">Choose the Model That Fits Your Journey:</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            
             {
               [
                 {
@@ -677,7 +679,7 @@ export default function OfferingPage() {
             {
               icon: <FileText className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#FF9F1C]" />,
               title: "Fixed-Fee Projects",
-              desc: "Project-based engagements with defined deliverables, timelines, and scope—perfect for specific initiatives or short-term objectives."
+              desc: "Project-based engagements with defined deliverables, timelines, and scope, perfect for specific initiatives or short-term objectives."
             },
             {
               icon: <RefreshCw className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#FF9F1C]" />,
@@ -760,7 +762,7 @@ export default function OfferingPage() {
                 {
                   icon: <Layers className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mx-auto text-[#FF9F1C]" />,
                   title: "Integrated Approach",
-                  desc: "Seamless support across every function under one roof—eliminating startup inefficiencies."
+                  desc: "Seamless support across every function under one roof, eliminating startup inefficiencies."
                 },
                 {
                   icon: <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mx-auto text-[#FF9F1C]" />,
@@ -770,12 +772,12 @@ export default function OfferingPage() {
                 {
                   icon: <Target className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mx-auto text-[#FF9F1C]" />,
                   title: "Flexible Engagement",
-                  desc: "We adapt to your needs—co-founding or standalone services, based on stage and goals."
+                  desc: "We adapt to your needs, co-founding or standalone services, based on stage and goals."
                 },
                 {
                   icon: <Infinity className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mx-auto text-[#FF9F1C]" />,
                   title: "Long-term Commitment",
-                  desc: "We’re in it for the long haul—with you through growth, scale, and exit."
+                  desc: "We’re in it for the long haul with you through growth, scale, and exit."
                 }
               ].map(({ icon, title, desc }, i) => (
                 <div key={i} className="bg-white/10 p-3 sm:p-4 rounded-lg sm:rounded-xl shadow text-white border border-white/20">
@@ -798,7 +800,7 @@ export default function OfferingPage() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <motion.h2 variants={fadeInUpVariants} className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 sm:mb-8 md:mb-12">Next Steps</motion.h2>
+          <motion.h2 variants={fadeInUpVariants} className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 sm:mb-8 md:mb-12">Next Steps:</motion.h2>
 
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-left"
@@ -821,7 +823,7 @@ export default function OfferingPage() {
               {
                 step: "3",
                 title: "Design the Partnership",
-                desc: "Co-create a tailored collaboration model—whether equity, revenue sharing, or hybrid—to suit your journey.",
+                desc: "Co-create a tailored collaboration model, whether equity, revenue sharing, or hybrid, to suit your journey.",
               },
               {
                 step: "4",
@@ -841,7 +843,7 @@ export default function OfferingPage() {
 
           <motion.div variants={fadeInUpVariants} className="mt-8 sm:mt-10 md:mt-12 flex justify-center">
             <Link to="/connect">
-              <Button size="lg" className="bg-[#FF9F1C] text-white hover:bg-opacity-90 text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3">
+              <Button size="lg" className="bg-[#FF9F1C] text-white hover:bg-yellow-800 font-semibold px-8 py-6 text-lg rounded-full cursor-pointer">
                 Start Your Partnership Journey
               </Button>
             </Link>

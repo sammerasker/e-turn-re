@@ -163,7 +163,7 @@ const EturnAdvantage = () => {
              animate={isInView ? { opacity: 1, y: 0 } : {}}
              transition={{ duration: 0.8, delay: 0.4 }}
           >
-            We've re-engineered startup building by combining all essential services into one integrated platform. No more juggling multiple partners or fragmented processes—just seamless execution from concept to success.
+            We've re-engineered startup building by combining all essential services into one integrated platform. No more juggling multiple partners or fragmented processes, just seamless execution from concept to success.
             <span className="block italic relative text-xs sm:text-sm md:text-base mt-4 px-3 sm:px-4 py-2 sm:py-3 border-l-4 border-gray-500 bg-gray-900 text-white rounded-r-lg">
               "Our advantage is clear: we provide a complete support for startup success. By combining our rapid development process, versatile partnership options, and full-stack execution with operational rigor and IP advisory, we ensure your venture is built to win.""
             </span>

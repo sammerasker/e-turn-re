@@ -510,15 +510,15 @@ const About = () => {
                 Founded in 2023, E-Turn emerged from a vision to transform how ventures are built in the MENA region. Our founders, with decades of combined experience in entrepreneurship, technology, and venture capital, recognized a critical gap: the need for a hands-on venture studio that truly co-creates with founders.
               </p>
               <p>
-                Unlike traditional incubators or accelerators, we don't just advise—we build alongside you. We contribute technical expertise, business acumen, and regional insights while sharing both risk and reward. This partnership model has proven to dramatically increase success rates for early-stage ventures.
+                Unlike traditional incubators or accelerators, we don't just advise, we build alongside you. We contribute technical expertise, business acumen, and regional insights while sharing both risk and reward. This partnership model has proven to dramatically increase success rates for early-stage ventures.
               </p>
             </motion.div>
             <motion.div variants={fadeInUpVariants} className="bg-gradient-to-br from-stone-800 via-stone-700 to-orange-900 backdrop-blur-sm border border-white/20 p-6 rounded-lg">
               <p className="mb-4">
-                Our name, E-Turn, represents the pivotal moment when an idea transforms into a viable business—the entrepreneurial turn that changes trajectories and creates impact. We exist to make these turns more successful, more strategic, and more sustainable.
+                Our name, E-Turn, represents the pivotal moment when an idea transforms into a viable business,the entrepreneurial turn that changes trajectories and creates impact. We exist to make these turns more successful, more strategic, and more sustainable.
               </p>
               <p>
-                Today, we're proud to be working with visionary founders across Egypt, UAE, and Saudi Arabia, building ventures that address meaningful challenges and create significant value. Our portfolio spans fintech, healthtech, edtech, and sustainability solutions—all united by their potential to transform industries and improve lives.
+                Today, we're proud to be working with visionary founders across Egypt, UAE, and Saudi Arabia, building ventures that address meaningful challenges and create significant value. Our portfolio spans fintech, healthtech, edtech, and sustainability solutions, all united by their potential to transform industries and improve lives.
               </p>
             </motion.div>
           </motion.div>
