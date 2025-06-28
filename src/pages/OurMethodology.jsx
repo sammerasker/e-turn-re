@@ -429,13 +429,13 @@ const OurMethodology = () => {
           animate="visible" // Animate on mount for hero section
         >
           <motion.h1
-            className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 tracking-tight"
+            className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 tracking-tight pt-10"
             variants={fadeInUpVariants}
           >
             OUR METHODOLOGY
           </motion.h1>
           <motion.h2
-            className="text-lg sm:text-xl md:text-3xl font-semibold mb-3 md:mb-4 opacity-90"
+            className="text-lg sm:text-xl md:text-3xl font-semibold mb-3 md:mb-4 opacity-90 text-yellow-400"
             variants={fadeInUpVariants}
           >
             From Concept to Success: The FastTrack™ Blueprint
@@ -453,28 +453,28 @@ const OurMethodology = () => {
             Traditional startup building is slow, fragmented, and risky. Our FastTrack™ methodology changes that. We've distilled years of entrepreneurial experience into a systematic approach that compresses timelines, reduces risk, and maximizes your chances of success. Every phase builds momentum while validating assumptions, ensuring you're always moving in the right direction. This methodology, combined with our flexible partnership models, adapts to each venture's unique needs and stage of development.
           </motion.p>
           <motion.div
-            className="flex flex-col md:flex-row justify-center gap-2 md:gap-4 mt-3 md:mt-8"
+            className="flex flex-col md:flex-row justify-center gap-2 md:gap-4 mt-3 md:mt-8 max-w-6xl mx-auto"
             variants={staggerContainerVariants}
           >
             <motion.div variants={fadeInUpVariants} className="bg-white/20 rounded-lg p-2 md:p-4 flex-1">
-              <h4 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 text-white">Strategic Assessment</h4>
+              <h4 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 text-yellow-400">Strategic Assessment</h4>
               <p className="text-xs sm:text-sm md:text-base text-white/80">Evaluate your current position and methodology entry point</p>
             </motion.div>
             <motion.div variants={fadeInUpVariants} className="bg-white/20 rounded-lg p-2 md:p-4 flex-1">
-              <h4 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 text-white">Customized Approach</h4>
+              <h4 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 text-yellow-400">Customized Approach</h4>
               <p className="text-xs sm:text-sm md:text-base text-white/80">Adapt our framework to your specific needs and market</p>
             </motion.div>
             <motion.div variants={fadeInUpVariants} className="bg-white/20 rounded-lg p-2 md:p-4 flex-1">
-              <h4 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 text-white">Accelerated Execution</h4>
+              <h4 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 text-yellow-400">Accelerated Execution</h4>
               <p className="text-xs sm:text-sm md:text-base text-white/80">Begin your fast-tracked journey with full expert support</p>
             </motion.div>
             <motion.div variants={fadeInUpVariants} className="bg-white/20 rounded-lg p-2 md:p-4 flex-1">
-              <h4 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 text-white">Validated Success</h4>
+              <h4 className="text-sm sm:text-base md:text-xl font-bold mb-1 md:mb-2 text-yellow-400">Validated Success</h4>
               <p className="text-xs sm:text-sm md:text-base text-white/80">Achieve market success faster than traditional approaches</p>
             </motion.div>
           </motion.div>
           <motion.div variants={fadeInUpVariants}>
-            <Button className="mt-3 md:mt-8 px-3 sm:px-4 md:px-8 py-1.5 sm:py-2 md:py-3 text-sm sm:text-base md:text-lg font-bold bg-[#FF9F1C] text-white hover:bg-opacity-90 shadow-lg" onClick={() => navigate("/connect")}>Start Your FastTrack Journey</Button>
+            <Button className="mt-3 md:mt-8 px-3 sm:px-4 md:px-8 py-1.5 sm:py-2 md:py-3 text-sm sm:text-base md:text-lg font-bold bg-[#FF9F1C] text-gray-900 hover:bg-yellow-100 shadow-lg cursor-pointer" onClick={() => navigate("/connect")}>Start Your FastTrack Journey</Button>
           </motion.div>
         </motion.div>
       </section>
@@ -508,7 +508,7 @@ const OurMethodology = () => {
                 <motion.h3 variants={fadeInUpVariants} className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{phase.title}</motion.h3>
               </div>
               <motion.h4 variants={fadeInUpVariants} className="text-lg sm:text-xl font-semibold mb-2 text-orange-400">{phase.subtitle}</motion.h4>
-              <motion.p variants={fadeInUpVariants} className="mb-4 text-white/80 font-medium text-sm sm:text-base">{phase.value}</motion.p>
+              <motion.p variants={fadeInUpVariants} className="mb-4 text-white/80 font-medium text-base sm:text-lg">{phase.value}</motion.p>
               <motion.div
                 className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-4"
                 variants={staggerContainerVariants}
@@ -516,7 +516,7 @@ const OurMethodology = () => {
                 {phase.approach.map((item, i) => (
                   <motion.div key={item} className="bg-gray-800 rounded-lg p-3 sm:p-4 shadow text-white" variants={fadeInUpVariants}>
                     <h5 className="font-bold text-orange-400 mb-1 text-sm sm:text-base">{item}</h5>
-                    <p className="text-white/80 text-xs sm:text-sm">{phase.details[i]}</p>
+                    <p className="text-white/80 text-sm sm:text-base">{phase.details[i]}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -525,7 +525,7 @@ const OurMethodology = () => {
                 variants={staggerContainerVariants}
               >
                 {phase.outcomes.map((outcome) => (
-                  <motion.li variants={fadeInUpVariants} key={outcome} className="bg-[#FF9F1C] text-white px-2 sm:px-3 md:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow"><ShieldCheck size={14} className="inline mr-1 text-white/80" />{outcome}</motion.li>
+                  <motion.li variants={fadeInUpVariants} key={outcome} className="bg-[#FF9F1C] text-gray-900 px-2 sm:px-3 md:px-4 py-1 sm:py-2 rounded-full text-base sm:text-lg font-semibold shadow"><ShieldCheck size={20} className="inline mr-1 text-white/80" />{outcome}</motion.li>
                 ))}
               </motion.ul>
             </motion.div>
@@ -568,17 +568,19 @@ const OurMethodology = () => {
               </motion.div>
             ))}
           </motion.div>
-          <motion.div
+        </motion.div>
+      </section>
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-900">
+      <motion.div
             className="mt-10 sm:mt-12 md:mt-16 text-center px-3 sm:px-4"
             variants={staggerContainerVariants}
           >
             <motion.h3 variants={fadeInUpVariants} className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#FF9F1C]">Ready to FastTrack Your Venture?</motion.h3>
             <motion.p variants={fadeInUpVariants} className="max-w-2xl mx-auto text-sm sm:text-sm md:text-lg text-white/80 mb-4 sm:mb-5 md:mb-6">Our methodology transforms ideas into thriving ventures by providing a structured path from concept to market success. Whether you're starting with an idea or accelerating an existing venture, we guide you through every phase with proven expertise and comprehensive support.</motion.p>
             <motion.div variants={fadeInUpVariants}>
-              <Button className="px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base md:text-lg font-bold bg-[#FF9F1C] text-white hover:bg-opacity-90 shadow-lg" onClick={() => navigate("/connect")}>Start Your Journey</Button>
+              <Button className="bg-[#FF9F1C] text-gray-900 hover:bg-yellow-800 font-semibold px-8 py-6 text-lg rounded-full cursor-pointer" onClick={() => navigate("/connect")}>Start Your Journey</Button>
             </motion.div>
           </motion.div>
-        </motion.div>
       </section>
     </div>
   );
