@@ -21,8 +21,8 @@ const Header = () => {
     { to: '/about', label: 'About Us' },
     { to: '/our-offerings', label: 'Our Offering' },
     { to: '/who-we-benefit', label: 'Who We Benefit' },
-  /*  { to: '/our-methodology', label: 'Our Methodology' },
-    { to: '/portfolio', label: 'Portfolio' }, */
+    { to: '/our-methodology', label: 'Our Methodology' },
+   /* { to: '/portfolio', label: 'Portfolio' }, */
     { to: '/connect', label: 'Connect' }
   ];
 
