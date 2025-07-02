@@ -22,7 +22,7 @@ const Header = () => {
     { to: '/our-offerings', label: 'Our Offering' },
     { to: '/who-we-benefit', label: 'Who We Benefit' },
     { to: '/our-methodology', label: 'Our Methodology' },
-   /* { to: '/portfolio', label: 'Portfolio' }, */
+    { to: '/portfolio', label: 'Portfolio' },
     { to: '/connect', label: 'Connect' }
   ];
 
@@ -166,7 +166,7 @@ const Header = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden bg-black/95 backdrop-blur-sm border-t border-gray-800"
+            className="absolute top-full left-0 right-0 md:hidden bg-black/95 backdrop-blur-sm border-t border-gray-800 z-40"
             variants={mobileMenuVariants}
             initial="initial"
             animate="animate"
