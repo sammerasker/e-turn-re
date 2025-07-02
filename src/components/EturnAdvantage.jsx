@@ -141,10 +141,10 @@ const EturnAdvantage = () => {
         `}
       </style>
 
-      <div className="container-custom relative z-20 px-4 sm:px-6 py-12 sm:py-16">
+      <div className="container mx-auto px-4 relative z-20 sm:px-6 py-12 sm:py-16">
         
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">//The e-turn Advanage</p>
+          <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">The e-turn Advanage</p>
           <motion.h2
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-6 text-white"
              initial={{ opacity: 0, y: 50 }}

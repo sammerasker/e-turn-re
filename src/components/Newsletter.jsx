@@ -133,7 +133,7 @@ const Newsletter = () => {
           }
         `}
       </style>
-      <div className="container-custom relative z-10 px-4 sm:px-6 py-12 sm:py-16"> {/* Added padding for mobile */}
+      <div className="container mx-auto relative z-10 px-4 sm:px-6 py-12 sm:py-16"> {/* Added padding for mobile */}
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
             Stay ahead of the curve.

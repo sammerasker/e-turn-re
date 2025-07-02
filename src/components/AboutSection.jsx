@@ -149,7 +149,7 @@ const AboutSection = () => {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6 }}
               >
-                // ABOUT US
+                ABOUT US
               </motion.p>
               <motion.h2 
                 className="text-5xl md:text-6xl font-bold mb-6"

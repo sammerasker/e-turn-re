@@ -75,7 +75,7 @@ const ServicesSection = () => {
             className="text-gray-400 text-sm uppercase tracking-wider mb-4"
             variants={itemVariants}
           >
-            // Our Offering 
+            Our Offering 
           </motion.p>
           <motion.h2 
             className="text-5xl md:text-6xl font-bold mb-8"

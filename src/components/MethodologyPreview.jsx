@@ -180,9 +180,9 @@ const services = [
       <div className="gradient-overlay-new"></div>
       <div ref={particlesContainerRef} className="particles-container-ep"></div>
 
-      <div className="container-custom relative z-10 px-4 sm:px-6 py-20 sm:py-16">
+      <div className="container mx-auto relative z-10 px-4 sm:px-6 py-20 sm:py-16">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">//Portfolio</p>
+          <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">Portfolio</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-3 sm:mb-6 text-white">Who We Benefit</h2>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Built for Founders at Every Stage of the Journey</h2>
           <p className="text-lg md:text-xl mb-6 sm:mb-10 border border-yellow-400 rounded-xl p-6 bg-black/60 backdrop-blur-sm">
